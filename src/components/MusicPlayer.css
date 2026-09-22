@@ -16,8 +16,52 @@
 
 .music-player iframe {
     width: 100%;
-    height: 300px;
+    min-height: 300px;
+    flex: 1;
     border: none;
     border-radius: 1rem;
     display: block;
+}
+
+.music-input-row {
+    display: flex;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.music-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: inherit;
+    font-size: 0.9rem;
+}
+
+.music-input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+.music-load-btn {
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    border: none;
+    background-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.music-load-btn:hover {
+    filter: brightness(1.1);
+}
+
+.music-error {
+    color: #e5484d;
+    font-size: 0.85rem;
+    margin: 0;
 }
