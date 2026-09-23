@@ -1,8 +1,10 @@
 # Pomodorro Timer
-A simple pomdorro timer bulit to help people stay disciplined and commit to focused work sessions.
-## Live Demo 
+A simple pomodoro timer built to help people stay disciplined and commit to focused work sessions.
+
+## Live Demo
 [View Live](https://pomodorro-timer-ecru.vercel.app)
-## Built with 
+
+## Built with
 <table>
 <tr>
     <td align="center">
@@ -21,14 +23,13 @@ A simple pomdorro timer bulit to help people stay disciplined and commit to focu
 </table>
 
 ## Features
-- 25-minute pomodorro timer
-- Start and stop the timer
-- Reset the timer at any point.
+- Pomodoro, Short Break, and Long Break timer modes
+- Click-to-edit timer duration (click the time to type a custom value; Enter confirms, Esc cancels)
+- Start, stop, and reset — reset returns to your edited duration, not the original preset
+- Background music player — paste any YouTube video, playlist, or Shorts link to play alongside your session
 
-## Planned 
-- [x] Editable Timer
-- [x] Timers for short and long break
+## Planned
 - [ ] Progress indicator
 - [ ] Pixelated theme
 - [ ] Custom session duration
-- [ ] Sound notifucation when the timer ends
+- [ ] Sound notification when the timer ends
