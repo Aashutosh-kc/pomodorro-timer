@@ -32,6 +32,9 @@ A simple pomodoro timer built to help people stay disciplined and commit to focu
 - Background music player — paste any YouTube video, playlist, or Shorts link to play alongside your session
 
 ## Planned
+- [ ] Navbar
+- [ ] Proper Layout
+- [ ] Better icons
 - [ ] Progress indicator
 - [ ] Pixelated theme
 - [ ] Custom session duration
