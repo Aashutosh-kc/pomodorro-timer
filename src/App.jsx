@@ -3,11 +3,14 @@ import "./App.css";
 import "./index.css";
 import Timer from "./components/TimerDisplay";
 import MusicPlayer from "./components/MusicPlayer";
+import Header from "./components/Header";
 
 function App() {
     const [timer, setTimer] = useState("Pomodoro");
 
     return (
+        <div className="app">
+        <Header appName="Pomodoro Timer"/>
         <div className="dashboard">
             <div className="all-timer">
                 <div className="timer-selector">
@@ -47,6 +50,7 @@ function App() {
             </div>
 
             <MusicPlayer />
+        </div>
         </div>
     );
 }
