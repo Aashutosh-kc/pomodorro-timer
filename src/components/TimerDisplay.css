@@ -79,3 +79,6 @@
     background-color: var(--accent);
     color: #fff;
 }
+.main-btns .reset-btn:hover{
+     background-color: #f72929;
+}

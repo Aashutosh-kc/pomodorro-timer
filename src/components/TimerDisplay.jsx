@@ -1,6 +1,6 @@
 import {useState,useEffect } from "react";
 import './TimerDisplay.css'
-
+import { Play,Pause,RotateCcw } from "lucide-react"
 export default function Timer({time,title}){
 
     const [duration,setDuration] = useState(time);
@@ -114,13 +114,13 @@ useEffect(()=>{
 
             <div className="main-btns">
                 <button className="start-btn" onClick={()=> {setIsRunning((prev)=> (!prev))}}>
-                    {isRunning?"Stop": "Start"}
+                    {isRunning?< Pause />:<Play />}
                 </button>
                 <button className="reset-btn" onClick={()=>{
                     setTimeleft(duration);
                     setIsRunning(false);
                 }}>
-                Reset
+                <RotateCcw />
                 </button>
             </div>
 
