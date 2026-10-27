@@ -12,32 +12,67 @@
     font-size: 2.5rem;
 }
 
-.timer-card p{
-    font-size: 5.5rem;
+.ring {
+    position: relative;
+    width: 280px;
+    aspect-ratio: 1;
+}
+
+.ring svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.ring-track,
+.ring-progress {
+    fill: none;
+    stroke-width: 12;
+}
+
+.ring-track {
+    stroke: lightgray;
+}
+
+.ring-progress {
+    stroke: var(--accent);
+    stroke-linecap: round;
+}
+
+.ring-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer-card p {
+    font-size: 2.6rem;
     line-height: 1;
     font-weight: 900;
     color: var(--accent);
     cursor: pointer;
-    margin: 0.5rem 0;
+    margin: 0;
 }
 
-.time-edit{
+.time-edit {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 5.5rem;
+    font-size: 2.2rem;
     line-height: 1;
     font-weight: 900;
     color: var(--accent);
-    margin: 0.5rem 0;
+    margin: 0;
 }
 
-.time-edit input{
+.time-edit input {
     width: 2ch;
     min-width: 2.5rem;
     box-sizing: content-box;
     padding: 0 0.25rem;
-    font-size: 5.5rem;
+    font-size: 2.2rem;
     font-weight: 900;
     font-family: inherit;
     line-height: 1.1;
@@ -49,11 +84,11 @@
     outline: none;
 }
 
-.time-edit .min-input{
+.time-edit .min-input {
     width: 3ch;
 }
 
-.timer-card .main-btns{
+.timer-card .main-btns {
     display: flex;
     gap: 1.5rem;
     margin-top: 1.5rem;
@@ -79,6 +114,7 @@
     background-color: var(--accent);
     color: #fff;
 }
-.main-btns .reset-btn:hover{
-     background-color: #f72929;
+
+.main-btns .reset-btn:hover {
+    background-color: #f72929;
 }

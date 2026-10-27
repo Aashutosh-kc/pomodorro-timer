@@ -1,64 +1,71 @@
-import {useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import './TimerDisplay.css'
-import { Play,Pause,RotateCcw } from "lucide-react"
-export default function Timer({time,title}){
+import { Play, Pause, RotateCcw } from "lucide-react"
 
-    const [duration,setDuration] = useState(time);
-    const [timeleft,setTimeleft] = useState(time);
-    const [isRunning,setIsRunning] = useState(false);
-    const [isEditing,setIsEditing] = useState(false);
-    const [editMin,setEditMin] = useState(Math.floor(time / 60));
-    const [editSec,setEditSec] = useState(String(time % 60).padStart(2,"0"));
+const RADIUS = 90;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-useEffect(()=>{
-    if (!isRunning) return;
-    const timeInterval = setInterval(()=>{
-        setTimeleft((prev) => {
-            if (prev <= 1) {
-                setIsRunning(false);
-                return 0;
-            }
-            return prev - 1;
-        });
-    },1000)
+export default function Timer({ time, title }) {
 
-    return () => clearInterval(timeInterval)
+    const [duration, setDuration] = useState(time);
+    const [timeleft, setTimeleft] = useState(time);
+    const [isRunning, setIsRunning] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
+    const [editMin, setEditMin] = useState(Math.floor(time / 60));
+    const [editSec, setEditSec] = useState(String(time % 60).padStart(2, "0"));
 
-},[isRunning]);
+    const progressRatio = duration > 0 ? timeleft / duration : 0;
+    const progress = CIRCUMFERENCE * progressRatio;
 
-    function getFormattedTime(unformattedtime){
+    useEffect(() => {
+        if (!isRunning) return;
+        const timeInterval = setInterval(() => {
+            setTimeleft((prev) => {
+                if (prev <= 1) {
+                    setIsRunning(false);
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000)
+
+        return () => clearInterval(timeInterval)
+
+    }, [isRunning]);
+
+    function getFormattedTime(unformattedtime) {
         const min = Math.floor(unformattedtime / 60);
         const sec = unformattedtime % 60;
-        const FormattedTime = min.toString() + " : " + sec.toString().padStart(2,"0");
+        const FormattedTime = min.toString() + " : " + sec.toString().padStart(2, "0");
         return FormattedTime;
     }
 
-    function startEditing(){
+    function startEditing() {
         if (isRunning) return;
         setEditMin(Math.floor(timeleft / 60));
-        setEditSec(String(timeleft % 60).padStart(2,"0"));
+        setEditSec(String(timeleft % 60).padStart(2, "0"));
         setIsEditing(true);
     }
 
-    function handleMinChange(rawValue){
-        let digits = rawValue.replace(/\D/g,"");
-        if (digits.length > 3) digits = digits.slice(0,3);
+    function handleMinChange(rawValue) {
+        let digits = rawValue.replace(/\D/g, "");
+        if (digits.length > 3) digits = digits.slice(0, 3);
         setEditMin(digits === "" ? "" : Number(digits).toString());
     }
 
-    function handleSecChange(rawValue){
-        let digits = rawValue.replace(/\D/g,"");
+    function handleSecChange(rawValue) {
+        let digits = rawValue.replace(/\D/g, "");
         if (digits.length > 2) digits = digits.slice(-2);
-        let num = digits === "" ? 0 : Math.min(59, parseInt(digits,10));
-        setEditSec(num.toString().padStart(2,"0"));
+        let num = digits === "" ? 0 : Math.min(59, parseInt(digits, 10));
+        setEditSec(num.toString().padStart(2, "0"));
     }
 
-    function handleEditKeyDown(e){
+    function handleEditKeyDown(e) {
         if (e.key === "Enter") confirmEdit();
         if (e.key === "Escape") cancelEdit();
     }
 
-    function confirmEdit(){
+    function confirmEdit() {
         const min = Math.max(0, Number(editMin) || 0);
         const sec = Math.min(59, Math.max(0, Number(editSec) || 0));
         const newDuration = min * 60 + sec;
@@ -68,59 +75,77 @@ useEffect(()=>{
         setIsEditing(false);
     }
 
-    function cancelEdit(){
+    function cancelEdit() {
         setIsEditing(false);
     }
 
-    return(
+    return (
         <div className="timer-card">
             <h2>{title}</h2>
 
-            {isEditing ? (
-                <div
-                    className="time-edit"
-                    onBlur={(e)=>{
-                        if (!e.currentTarget.contains(e.relatedTarget)) confirmEdit();
-                    }}
-                >
-                    <input
-                        className="min-input"
-                        type="text"
-                        inputMode="numeric"
-                        pattern="[0-9]*"
-                        maxLength={3}
-                        value={editMin}
-                        onChange={(e)=> handleMinChange(e.target.value)}
-                        onKeyDown={handleEditKeyDown}
-                        onFocus={(e)=> e.target.select()}
-                        autoFocus
-                    />
-                    <span>:</span>
-                    <input
-                        type="text"
-                        inputMode="numeric"
-                        pattern="[0-9]*"
-                        value={editSec}
-                        onChange={(e)=> handleSecChange(e.target.value)}
-                        onKeyDown={handleEditKeyDown}
-                        onFocus={(e)=> e.target.select()}
-                    />
+            <div className="ring">
+                <svg viewBox="0 0 240 240">
+                    <circle className="ring-track" cx="120" cy="120" r={RADIUS} />
+                    {progress > 0 && (
+                        <circle
+                            className="ring-progress"
+                            cx="120"
+                            cy="120"
+                            r={RADIUS}
+                            strokeDasharray={`${progress} ${CIRCUMFERENCE}`}
+                            transform="rotate(-90 120 120)"
+                        />
+                    )}
+                </svg>
+
+                <div className="ring-center">
+                    {isEditing ? (
+                        <div
+                            className="time-edit"
+                            onBlur={(e) => {
+                                if (!e.currentTarget.contains(e.relatedTarget)) confirmEdit();
+                            }}
+                        >
+                            <input
+                                className="min-input"
+                                type="text"
+                                inputMode="numeric"
+                                pattern="[0-9]*"
+                                maxLength={3}
+                                value={editMin}
+                                onChange={(e) => handleMinChange(e.target.value)}
+                                onKeyDown={handleEditKeyDown}
+                                onFocus={(e) => e.target.select()}
+                                autoFocus
+                            />
+                            <span>:</span>
+                            <input
+                                type="text"
+                                inputMode="numeric"
+                                pattern="[0-9]*"
+                                value={editSec}
+                                onChange={(e) => handleSecChange(e.target.value)}
+                                onKeyDown={handleEditKeyDown}
+                                onFocus={(e) => e.target.select()}
+                            />
+                        </div>
+                    ) : (
+                        <p onClick={startEditing} title="Click to edit time">
+                            {getFormattedTime(timeleft)}
+                        </p>
+                    )}
                 </div>
-            ) : (
-                <p onClick={startEditing} title="Click to edit time">
-                    {getFormattedTime(timeleft)}
-                </p>
-            )}
+            </div>
 
             <div className="main-btns">
-                <button className="start-btn" onClick={()=> {setIsRunning((prev)=> (!prev))}}>
-                    {isRunning?< Pause />:<Play />}
+                <button className="start-btn" onClick={() => { setIsRunning((prev) => !prev) }}>
+                    {isRunning ? <Pause /> : <Play />}
                 </button>
-                <button className="reset-btn" onClick={()=>{
+                <button className="reset-btn" onClick={() => {
                     setTimeleft(duration);
                     setIsRunning(false);
                 }}>
-                <RotateCcw />
+                    <RotateCcw />
                 </button>
             </div>
 
