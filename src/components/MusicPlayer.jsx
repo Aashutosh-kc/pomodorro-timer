@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './MusicPlayer.css';
-
+import { EighthNote } from 'lucide-react';
 const DEFAULT_EMBED_URL =
     'https://www.youtube.com/embed/videoseries?list=PL18d2lPAowrdMgN_pRJ8bfq8eX9PAIL9C';
 
@@ -105,7 +105,7 @@ export default function MusicPlayer(){
 
     return (
         <div className="music-player">
-            <h2>Music Player</h2>
+            <div className='player-title'><EighthNote color='#ff5a5f'/><h2>Music Player</h2></div>
             <form className="music-input-row" onSubmit={handleLoad}>
                 <input
                     type="text"
