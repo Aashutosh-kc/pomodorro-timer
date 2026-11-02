@@ -16,14 +16,7 @@
     align-items: center;
     cursor: pointer;
 }
-.brand-logo{
-    background-color: var(--accent);
-    color: var(--surface);
-    border-radius: 18px;
-    width: 40px;
-    height: 40px;
-    padding: 4px;
-}
+
 .brand .brand-name{
     color: var(--accent);
     font-weight: 700;
