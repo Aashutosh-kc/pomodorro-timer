@@ -1,0 +1,42 @@
+.active-audio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+.audio-cover{
+    width: 100%;
+    aspect-ratio: 4/3;
+}
+
+.audio-name{
+    font-size: 24px;
+}
+.active-audio .audio-btns{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 16px;
+}
+.audio-btns button{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--accent);
+}
+.audio-volume{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.volume-btn{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: var(--accent);
+}
+.audio-bar{
+    width: 100%;
+    accent-color: var(--accent);
+}

@@ -1,0 +1,28 @@
+.youtube-player{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.youtube-player .input-field{
+    display: flex;
+    width: 100%;
+}
+.input-field input{
+    flex: 1;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+.input-field button{
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 8px 12px;
+    background-color: var(--accent);
+    color: var(--surface);
+}
+.youtube-iframe{
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    border: none;
+}

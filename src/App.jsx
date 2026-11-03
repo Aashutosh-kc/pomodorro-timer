@@ -7,7 +7,6 @@ import Header from "./components/Header";
 
 function App() {
     const [timer, setTimer] = useState("Pomodoro");
-
     return (
         <div className="app">
         <Header appName="Pomodoro Timer"/>
@@ -49,7 +48,7 @@ function App() {
                 )}
             </div>
 
-            <MusicPlayer />
+            <MusicPlayer timer={timer} />
         </div>
         </div>
     );

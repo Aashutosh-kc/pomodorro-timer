@@ -1,75 +1,47 @@
-.music-player {
-    width: 720px;
-    padding: 2rem;
-    border: 2px solid var(--accent);
-    background-color: var(--surface);
+.music-player{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    border-bottom-left-radius: 0.8rem;
-    border-bottom-right-radius: 0.8rem;
-}
+    background-color: var(--surface);
+    border-bottom-left-radius: 12px;
 
-.music-player h2 {
-    color: var(--text);
 }
-
-.music-player .player-title{
+.music-player .title{
     display: flex;
-    gap: 8px;
+    flex-direction: row;
     align-items: center;
-
+    color: var(--accent);
+    gap: 16px;
+    margin-bottom: 16px;
 }
-
-.music-player iframe {
-    width: 100%;
-    min-height: 300px;
-    flex: 1;
-    border: none;
-    border-radius: 1rem;
-    display: block;
-}
-
-.music-input-row {
+.selection-bar{
     display: flex;
-    gap: 0.5rem;
     width: 100%;
+    align-items: center;
+    justify-content: center;
 }
+.selection-bar .option{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--border);
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: var(--text);
 
-.music-input {
-    flex: 1;
-    min-width: 0;
-    padding: 0.6rem 0.8rem;
-    border-radius: 0.75rem;
-    border: 1px solid var(--accent);
-    background: transparent;
-    color: inherit;
-    font-size: 0.9rem;
 }
-
-.music-input:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 1px;
+.selection-bar .option:hover{
+    background-color: var(--text-muted);
+    color: var(--surface);
 }
-
-.music-load-btn {
-    padding: 0.6rem 1rem;
-    border-radius: 0.75rem;
-    border: none;
+.selection-bar .option.selected{
     background-color: var(--accent);
     color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
 }
-
-.music-load-btn:hover {
-    filter: brightness(1.1);
-}
-
-.music-error {
-    color: #e5484d;
-    font-size: 0.85rem;
-    margin: 0;
+.selected-audio{
+    border: 1px solid var(--accent);
+    width: 100%;
+    padding: 32px 24px;
+    
 }

@@ -31,7 +31,7 @@
 }
 
 .ring-track {
-    stroke: lightgray;
+    stroke: var(--border);
 }
 
 .ring-progress {

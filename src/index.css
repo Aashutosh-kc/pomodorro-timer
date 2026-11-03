@@ -1,12 +1,13 @@
 :root {
-    --font-display: "Geist Pixel", monospace;
+    --font-display: "Open Sans", sans-serif;
 
-    --bg: #ffe4e1;
-    --surface: #ffffff;
-    --accent: #ff5a5f;
-    --accent-hover: #e64950;
-    --text: #222222;
-    --text-muted: #6b7280;
+    --bg: #11001c;
+    --surface: #220135;
+    --border: #3E1452;
+    --accent: #B02BEE;
+    --accent-hover: #A112E2;
+    --text: #A1C2E8;
+    --text-muted: #A58BB1;
 }
 
 * {
@@ -17,7 +18,7 @@
 
 body {
     font-family: var(--font-display);
-    background: linear-gradient(135deg,var(--accent),var(--bg),var(--accent));
+    background-color: var(--bg);
     color: var(--text);
     min-height: 100vh;
 }
