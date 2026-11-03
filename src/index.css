@@ -1,15 +1,14 @@
 :root {
     --font-display: "Open Sans", sans-serif;
 
-    --bg: #11001c;
-    --surface: #220135;
-    --border: #3E1452;
-    --accent: #B02BEE;
-    --accent-hover: #A112E2;
-    --text: #A1C2E8;
-    --text-muted: #A58BB1;
+    --bg: #17191D;
+    --surface: #22252B;
+    --border: #343941;
+    --accent: #FF654F;
+    --accent-hover: #F4513D;
+    --text: #F4F1ED;
+    --text-muted: #A7A29D;
 }
-
 * {
     margin: 0;
     padding: 0;
