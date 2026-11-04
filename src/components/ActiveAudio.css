@@ -24,6 +24,10 @@
     background: transparent;
     border: none;
     color: var(--accent);
+    transform: all 0.3s ease;
+}
+.audio-btns button:hover{
+    transform: scale(1.25);
 }
 .audio-volume{
     display: flex;
@@ -35,6 +39,15 @@
     background: transparent;
     border: none;
     color: var(--accent);
+    padding: 4px 12px;
+    transform: all 0.3s ease;
+}
+.volume-btn:hover{
+    transform: scale(1.05);
+    background-color: var(--accent);
+    color: #fff;
+    border-radius: 8px;
+    
 }
 .audio-bar{
     width: 100%;

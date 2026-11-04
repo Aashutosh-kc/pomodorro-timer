@@ -9,12 +9,11 @@
     min-height: 76px;
     
 }
-.brand{
+.brand {
     display: flex;
-    flex-direction: row;
-    gap: 8px;
     align-items: center;
-    cursor: pointer;
+    gap: 10px;
+    text-decoration: none;
 }
 
 .brand .brand-name{
@@ -31,7 +30,7 @@
     border: 1px solid var(--text);
     border-radius: 8px;
     padding: 8px 16px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 .github-link .github-text{
     color: var(--text);
@@ -43,7 +42,14 @@
 .github-link:hover{
     background-color: var(--accent-hover);
     opacity: 0.85;
+    border-color: var(--accent);
+    transform: translateY(-2px);
 }
 .github-link:focus-visible{
     border: 1px solid var(--accent);
+}
+@media(max-width: 480px){
+    .header{
+        padding: 4px 12px;
+    }
 }

@@ -50,6 +50,9 @@
 }
 @media (max-width: 480px){
     .dashboard{
-        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+    .all-timer{
+        border-radius: 16px;
     }
 }

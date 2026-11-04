@@ -4,7 +4,6 @@
     align-items: center;
     background-color: var(--surface);
     border-bottom-left-radius: 12px;
-
 }
 .music-player .title{
     display: flex;
@@ -13,6 +12,7 @@
     color: var(--accent);
     gap: 16px;
     margin-bottom: 16px;
+    margin-top: 16px;
 }
 .selection-bar{
     display: flex;
@@ -29,7 +29,7 @@
     padding: 8px 12px;
     cursor: pointer;
     color: var(--text);
-
+    transition: all 0.25s ease;
 }
 .selection-bar .option:hover{
     background-color: var(--text-muted);
@@ -44,4 +44,10 @@
     width: 100%;
     padding: 32px 24px;
     
+}
+@media(max-width: 480px){
+    .music-player{
+        border-bottom-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+    }
 }
