@@ -15,6 +15,7 @@
 .input-field input{
     flex: 1;
     border: none;
+    outline: none;
 }
 .input-field button{
     border: 1px solid var(--accent);

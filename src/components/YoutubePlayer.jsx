@@ -10,11 +10,15 @@ export default function YoutubePlayer(){
         try{
             const url = new URL(anyUrl);
             const id = url.searchParams.get('v');
-            if(!id){
-                setError("Enter a valid youtube link")
-                return;
+            const playlistId = url.searchParams.get('list');
+            if(!playlistId){
+                if (!id){
+                    setError("Enter a valid youtube link");
+                    return null;
+                }
+                return (`https://www.youtube.com/embed/${id}`);
             }
-            return (`https://youtube.com/embed/${id}`)
+            return (`https://www.youtube.com/embed?listType=playlist&list=${playlistId}`);
             
         }
         catch{
